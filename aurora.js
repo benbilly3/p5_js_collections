@@ -6,6 +6,7 @@ let inter = 0.001;
 let numNoise = 600;
 let lapse = 2;
 let noiseProg = (x) => (x);
+let vocabulary = 'Easy!,Intelligent!,Practical!,Diverse!';
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -25,6 +26,29 @@ function windowResized() {
 
 function draw() {
   background(0.6, 0.7, 0.25);
+
+  strokeWeight(2);
+  push();
+  colorMode(RGB);
+  fill(200, 150 + sin(frameCount * 0.1) * 50, 4);
+  if (mouseIsPressed) {
+    stroke(255);
+  } else {
+    noStroke();
+  }
+  textSize(60 + (abs(mouseY) / width) * 20);
+  text("Our Services", width * 0.05, 150);
+  textSize(30 + (abs(mouseY) / width) * 20);
+  text("Easy! Intelligent! Practical! Diverse!", width * 0.15, 210);
+
+  pop();
+  fill(255);
+  textSize(30 + (abs(mouseY) / width) * 5);
+  text("Fdata DataBase", width * 0.15, 300);
+  text("Quantitative investment API", width * 0.2, 400);
+  text("Strategy Dashboard", width * 0.15, 500);
+  text("Online Classes", width * 0.2, 600);
+
   translate(width / 3, height / 2.3)
   let t = frameCount / 100;
   for (let i = n; i > 0; i--) {

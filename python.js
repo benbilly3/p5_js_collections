@@ -22,39 +22,54 @@ function windowResized() {
 }
 
 function draw() {
-  // print(w,dx,yvalues.length);
+  // title
   background(0);
+  strokeWeight(2);
+  push();
+  fill(247, 200 + sin(frameCount * 0.08) * 50, 4);
+  if (mouseIsPressed) {
+    stroke(255);
+  } else {
+    noStroke();
+  }
+  textSize(60 + (abs(mouseX) / width) * 20);
+  text("Our Classes", width * 0.45, 150);
+  textSize(30 + (abs(mouseX) / width) * 10);
+  text("Various subjects with python!", width * 0.55, 210);
+  pop();
+  fill(255);
+  textSize(30 + (abs(mouseX) / width) * 5);
+  text("Strategy Development", width * 0.55, 300);
+  text("Machine Learning Applications", width * 0.6, 400);
+  text("Quantitative Data Analysis", width * 0.55, 500);
+  text("Visualization", width * 0.6, 600);
+
   push();
   calcWave();
-  renderWave(16);
+  python(16);
   translate(0, 50)
   calcWave();
-  renderWave(50, head = 1);
+  python(50, head = 1);
   translate(0, 50)
   calcWave();
-  renderWave(16);
+  python(16);
   pop();
   push();
   translate(-100, -350)
   rotate(PI / 7.0);
   calcWave();
-  renderWave(10);
+  python(10);
   translate(0, 30)
   calcWave();
-  renderWave(30, head = 1);
+  python(30, head = 1);
   translate(0, 30)
   calcWave();
-  renderWave(10);
+  python(10);
   pop();
 
 }
 
 function calcWave() {
-  // Increment theta (try different values for
-  // 'angular velocity' here)
-  // if (theta<1){
-  // theta += 0.01;}
-
   theta += 0.01;
 
   // For every x value, calculate a y value with sine function
@@ -65,21 +80,30 @@ function calcWave() {
   }
 }
 
-function renderWave(radius, head) {
+function python(radius, head) {
   noStroke();
   fill(255);
   // A simple way to draw the wave with an ellipse at each location
   for (let x = 0; x < yvalues.length; x++) {
-    fill(50 + random(130), 200 - mouseX / 10, 50 + random(130));
+		if(x % 2==1){
+			fill(170 + random(60), 50 + mouseX / 10  +mouseY / 10, 20 + random(60));
+		}else{fill(70 + random(100), 200 - mouseX / 10 + -mouseY / 10, 50 + random(130));}
     ellipse(x * xspacing, height / 3 * 2 + yvalues[x], radius, radius);
     let check = x % num;
     if (check == num - 1 & head == 1) {
+      // head
       ellipse(x * xspacing + 90, height / 3 * 2 + yvalues[x], radius + 150, radius + 100);
       fill(206, 100, 88);
-      ellipse(x * xspacing + 90, height / 3 * 2 + yvalues[x] + 30, 20, 25);
-      ellipse(x * xspacing + 90, height / 3 * 2 + yvalues[x] - 30, 20, 25);
+      // eye
+      ellipse(x * xspacing + 90, height / 3 * 2 + yvalues[x] + 30, 40, 20 + random(3));
+      ellipse(x * xspacing + 90, height / 3 * 2 + yvalues[x] - 30, 40, 20 + random(3));
+      // tongue
       rect(x * xspacing + 180, height / 3 * 2 + yvalues[x] - 10, 80, 25, 20);
       fill(0);
+      //eyeball
+      ellipse(x * xspacing + 90, height / 3 * 2 + yvalues[x] + 30, 15, 15 + random(5));
+      ellipse(x * xspacing + 90, height / 3 * 2 + yvalues[x] - 30, 15, 15 + random(5));
+      // tongue
       triangle(x * xspacing + 230, height / 3 * 2 + yvalues[x], x * xspacing + 260, height / 3 * 2 + yvalues[x] - 5, x * xspacing + 260, height / 3 * 2 + yvalues[x] + 15);
     } else {
       ellipse(x * xspacing, height / 3 * 2 + yvalues[x], radius, radius);

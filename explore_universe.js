@@ -18,7 +18,7 @@ function setup() {
   diagonal = sqrt(width * width + height * height) / 5;
   noStroke();
   fill(255);
-  frameRate(8);
+  frameRate(10);
 }
 
 // 重新拉伸畫布
@@ -72,7 +72,7 @@ function draw() {
   push();
   setGradient(0, 0, width, height, color(5, 12, 81), color(23, 25, 28), X_AXIS);
   setGradient(0, 0, width, height, color(5, 12, 81), color(23, 25, 28), Y_AXIS);
-  translate(width / 2 + 250, height / 2);
+  translate(width / 2 + 350, height / 2);
   rotation -= (width / 2 - mouseX) / 40000;
   rotate(rotation);
 
@@ -105,7 +105,7 @@ class Particle {
     ellipse(0, 0, width / this.o / 8, width / this.o / 8);
     // star(0, 0, width/this.o/20,width/this.o/10, 6);
     pop();
-    this.o += (mouseY / 3 - height / 3) / 600;
+    this.o += (mouseY-height/2) / 600;
   }
 
   drawDist() {
