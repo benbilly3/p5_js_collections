@@ -15,7 +15,7 @@ function setup() {
   }
   createCanvas(windowWidth, windowHeight);
   // star fig area
-  diagonal = sqrt(width * width + height * height) / 5;
+  diagonal = sqrt(width * width + height * height) / 3.5;
   noStroke();
   fill(255);
   frameRate(10);
@@ -105,7 +105,7 @@ class Particle {
     ellipse(0, 0, width / this.o / 8, width / this.o / 8);
     // star(0, 0, width/this.o/20,width/this.o/10, 6);
     pop();
-    this.o += (mouseY-height/2) / 600;
+    this.o += (mouseY / 5 - height / 3) / 600;
   }
 
   drawDist() {
