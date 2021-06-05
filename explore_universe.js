@@ -102,7 +102,7 @@ class Particle {
     translate(this.drawDist(), 0);
 		noStroke();
 		colorMode(HSB);
-    fill(30+mouseX/20+mouseY/20+sin(frameCount/50)*60, random(20,80),sin(frameCount/10)*15+random(20,50));;
+    fill(150+mouseX/15+mouseY/15+sin(frameCount/30)*150, random(20,80),sin(frameCount/20)*15+random(20,70));
 		drawingContext.shadowOffsetX = 15;
 		drawingContext.shadowOffsetY = -5;
 		drawingContext.shadowBlur = 5;
