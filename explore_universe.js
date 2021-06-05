@@ -15,7 +15,7 @@ function setup() {
   }
   createCanvas(windowWidth, windowHeight);
   // star fig area
-  diagonal = sqrt(width * width + height * height) / 2;
+  diagonal = sqrt(width * width + height * height) / 2.5;
   noStroke();
   fill(255);
   frameRate(15);
@@ -73,7 +73,7 @@ function draw() {
   setGradient(0, 0, width, height, color(5, 12, 81), color(23, 25, 28), X_AXIS);
   setGradient(0, 0, width, height, color(5, 12, 81), color(23, 25, 28), Y_AXIS);
   translate(width / 2 + 350, height / 2);
-  rotation -= (width / 2 - mouseX) / 50000;
+  rotation -= (width / 2 - mouseX) / 40000;
   rotate(rotation);
 
   for (var i = 0; i < fig.length; i++) {
@@ -103,9 +103,9 @@ class Particle {
 		noStroke();
 		colorMode(HSB);
     fill(150+mouseX/15+mouseY/15+sin(frameCount/30)*150, random(20,80),sin(frameCount/20)*15+30);
-		drawingContext.shadowOffsetX = 15;
+		drawingContext.shadowOffsetX = 20;
 		drawingContext.shadowOffsetY = -5;
-		drawingContext.shadowBlur = 5;
+		drawingContext.shadowBlur = 8;
 		drawingContext.shadowColor = 'white';
     ellipse(0, 0, width/this.o/8+sin(frameCount/20)*6, width/this.o/8+sin(frameCount/40)*3);
     // star(0, 0, width/this.o/20,width/this.o/10, 6);
