@@ -18,7 +18,7 @@ function setup() {
   diagonal = sqrt(width * width + height * height) / 2.5;
   noStroke();
   fill(255);
-  frameRate(15);
+  frameRate(30);
 }
 
 // 重新拉伸畫布
@@ -101,16 +101,15 @@ class Particle {
 		rotate(frameCount / -100.0);
     translate(this.drawDist(), 0);
 		noStroke();
-		colorMode(HSB);
-    fill(150+mouseX/15+mouseY/15+sin(frameCount/30)*150, random(20,80),sin(frameCount/20)*15+30);
-		drawingContext.shadowOffsetX = 20;
+    fill(247, 235, 128+abs(sin(frameCount/20)*40));
+		drawingContext.shadowOffsetX = 15;
 		drawingContext.shadowOffsetY = -5;
-		drawingContext.shadowBlur = 8;
+		drawingContext.shadowBlur = 5;
 		drawingContext.shadowColor = 'white';
     ellipse(0, 0, width/this.o/8+sin(frameCount/20)*6, width/this.o/8+sin(frameCount/40)*3);
     // star(0, 0, width/this.o/20,width/this.o/10, 6);
     pop();
-    this.o += (mouseY / 5 - height / 2) / 500;
+    this.o += (mouseY / 6 - height / 4) / 600;
   }
 
   drawDist() {
