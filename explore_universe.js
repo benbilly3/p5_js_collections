@@ -15,7 +15,7 @@ function setup() {
   }
   createCanvas(windowWidth, windowHeight);
   // star fig area
-  diagonal = sqrt(width * width + height * height) / 2.5;
+  diagonal = sqrt(width * width + height * height) / 3;
   noStroke();
   fill(255);
   frameRate(30);
