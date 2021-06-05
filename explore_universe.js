@@ -1,6 +1,6 @@
 // 密集度幀數
 let fig = []
-for (var i = 0; i < 800; i++) {
+for (var i = 0; i < 600; i++) {
   fig[i] = 1
 }
 let diagonal;
@@ -15,7 +15,7 @@ function setup() {
   }
   createCanvas(windowWidth, windowHeight);
   // star fig area
-  diagonal = sqrt(width * width + height * height) / 3.5;
+  diagonal = sqrt(width * width + height * height) / 3;
   noStroke();
   fill(255);
   frameRate(10);
@@ -98,14 +98,19 @@ class Particle {
     this.l++;
     push();
     rotate(this.r);
-    rotate(frameCount / -100.0);
+		rotate(frameCount / -100.0);
     translate(this.drawDist(), 0);
-    colorMode(HSB);
-    fill(120 + frameCount + random(30), random(20, 70), random(30, 70));
-    ellipse(0, 0, width / this.o / 8, width / this.o / 8);
+		noStroke();
+		colorMode(HSB);
+    fill(30+mouseX/20+mouseY/20+sin(frameCount/50)*60, random(20,80),sin(frameCount/10)*15+random(20,50));;
+		drawingContext.shadowOffsetX = 15;
+		drawingContext.shadowOffsetY = -5;
+		drawingContext.shadowBlur = 5;
+		drawingContext.shadowColor = 'white';
+    ellipse(0, 0, width/this.o/8+sin(frameCount/20)*6, width/this.o/8+sin(frameCount/40)*3);
     // star(0, 0, width/this.o/20,width/this.o/10, 6);
     pop();
-    this.o += (mouseY / 5 - height / 3) / 600;
+    this.o += (mouseY / 2 - height / 3) / 600;
   }
 
   drawDist() {

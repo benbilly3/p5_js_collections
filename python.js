@@ -32,7 +32,7 @@ function draw() {
   } else {
     noStroke();
   }
-  textSize(60 + (abs(mouseX) / width) * 20);
+  textSize(80 + (abs(mouseX) / width) * 30);
   text("Our Classes", width * 0.45, 150);
   textSize(30 + (abs(mouseX) / width) * 10);
   text("Various subjects with python!", width * 0.55, 210);
@@ -55,13 +55,25 @@ function draw() {
   python(16);
   pop();
   push();
-  translate(-100, -350)
+  translate(-100, -330)
   rotate(PI / 7.0);
   calcWave();
   python(10);
   translate(0, 30)
   calcWave();
   python(30, head = 1);
+  translate(0, 30)
+  calcWave();
+  python(10);
+  pop();
+  push();
+  translate(50, -450)
+  rotate(PI / 9.0);
+  calcWave();
+  python(10);
+  translate(0, 30)
+  calcWave();
+  python(40, head = 1);
   translate(0, 30)
   calcWave();
   python(10);
@@ -95,14 +107,14 @@ function python(radius, head) {
       ellipse(x * xspacing + 90, height / 3 * 2 + yvalues[x], radius + 150, radius + 100);
       fill(206, 100, 88);
       // eye
-      ellipse(x * xspacing + 90, height / 3 * 2 + yvalues[x] + 30, 40, 20 + random(3));
-      ellipse(x * xspacing + 90, height / 3 * 2 + yvalues[x] - 30, 40, 20 + random(3));
+      ellipse(x * xspacing + 90, height / 3 * 2 + yvalues[x] + 30, 40, 20 );
+      ellipse(x * xspacing + 90, height / 3 * 2 + yvalues[x] - 30, 40, 20 );
       // tongue
       rect(x * xspacing + 180, height / 3 * 2 + yvalues[x] - 10, 80, 25, 20);
       fill(0);
       //eyeball
-      ellipse(x * xspacing + 90, height / 3 * 2 + yvalues[x] + 30, 15, 15 + random(5));
-      ellipse(x * xspacing + 90, height / 3 * 2 + yvalues[x] - 30, 15, 15 + random(5));
+      ellipse(x * xspacing + 90, height / 3 * 2 + yvalues[x] + 30, 2 + (sin(frameCount/10)+2)*7, 4 + (sin(frameCount/10)+2)*8);
+      ellipse(x * xspacing + 90, height / 3 * 2 + yvalues[x] - 30, 2 + (sin(frameCount/10)+2)*7, 4 + (sin(frameCount/10)+2)*8);
       // tongue
       triangle(x * xspacing + 230, height / 3 * 2 + yvalues[x], x * xspacing + 260, height / 3 * 2 + yvalues[x] - 5, x * xspacing + 260, height / 3 * 2 + yvalues[x] + 15);
     } else {
