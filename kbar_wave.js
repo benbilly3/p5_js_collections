@@ -18,7 +18,7 @@ function draw() {
   let xoff = 0; // Option #1: 2D Noise
 
   // Iterate over horizontal pixels
-  for (let x = 0; x <= width; x += 10) {
+  for (let x = 0; x <= width; x += 20) {
     // Calculate a y value according to noise, map to
 		// add bband
     let ind_y = map(noise(xoff, yoff), 0, 1, 20, 300);
