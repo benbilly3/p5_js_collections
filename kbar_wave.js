@@ -15,15 +15,16 @@ function windowResized() {
 function draw() {
   background(0);
 
-  // fill(255);
-
   let xoff = 0; // Option #1: 2D Noise
-  // rect(20,20,20,20);
 
   // Iterate over horizontal pixels
   for (let x = 0; x <= width; x += 10) {
     // Calculate a y value according to noise, map to
-
+		// add bband
+    let ind_y = map(noise(xoff, yoff), 0, 1, 20, 300);
+	fill(255);
+    circle(x, ind_y +300,5);
+	circle(x, ind_y +50,5);
     // Option #1: 2D Noise
     let y = map(noise(xoff, yoff), 0, 1, 25, 600);
 
