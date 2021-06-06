@@ -17,7 +17,7 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     angleMode(DEGREES);
     blendMode(LIGHTEST)
-    textSize(16);
+    textSize(20);
     textStyle(BOLD);
     colorA = color(255, 223, 66, 80);
     colorB = color(50, 68, 173, 80);
@@ -49,10 +49,10 @@ function draw() {
         objs[i].c = lerpColor(colorA, colorB, random(1));
     }
     pop();
-    sideObj(width * 0.9, height * 0.9);
-    sideObj(width * 0.1, height * 0.1);
-    sideObj(width * 0.1, height * 0.9);
-    sideObj(width * 0.9, height * 0.1);
+    sideObj(width * 0.8, height * 0.8);
+    sideObj(width * 0.2, height * 0.2);
+    sideObj(width * 0.2, height * 0.8);
+    sideObj(width * 0.8, height * 0.2);
 
 }
 
